@@ -8,15 +8,6 @@ import RiskAssessment from './components/RiskAssessment/RiskAssessment';
 import ContractIQPage from './pages/ContractIQPage';
 
 
-interface Contract {
-  analysis: any;
-  metadata: {
-    filename: string;
-    filesize: number;
-    timestamp: string;
-  };
-  status: string;
-}
 
 const App: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

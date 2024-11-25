@@ -9,7 +9,6 @@ const HomePage: React.FC = () => {
   const [contracts, setContracts] = useState<Contract[]>([]);
   const [selectedContract, setSelectedContract] = useState<Contract | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const storedContracts = localStorage.getItem('contracts');
