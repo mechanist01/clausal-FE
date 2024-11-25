@@ -3,7 +3,6 @@ import Upload from '../components/Upload/Upload';
 import ContractAnalysis from '../components/ContractAnalysis/ContractAnalysis';
 import ContractList from '../components/ContractList/ContractList';
 import type { Contract } from '../types/contracts';
-import { useNavigate } from 'react-router-dom';
 
 const HomePage: React.FC = () => {
   const [contracts, setContracts] = useState<Contract[]>([]);
