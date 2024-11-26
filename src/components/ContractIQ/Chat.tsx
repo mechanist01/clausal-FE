@@ -1,6 +1,6 @@
 // components/ContractIQ/Chat.tsx
 import React, { useState, useEffect, useRef } from 'react';
-import { Send, Loader, AlertCircle, Brain } from 'lucide-react';
+import { Send, AlertCircle, Brain } from 'lucide-react';
 import { sendChatMessage } from '../../services/api';
 import { useChatStore } from '../../store/chatStore';
 import type { ChatMessage } from '../../types/contracts';
