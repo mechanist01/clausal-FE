@@ -46,9 +46,10 @@ const Chat: React.FC<ChatProps> = ({ contractId }) => {
     setCurrentContract(contractId);
   }, [contractId, setCurrentContract]);
 
+  const currentMessages = getCurrentMessages();
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [getCurrentMessages()]);
+  }, [currentMessages]);
 
   const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -67,7 +68,7 @@ const Chat: React.FC<ChatProps> = ({ contractId }) => {
     setError(null);
 
     try {
-        const response = await sendChatMessage(inputMessage, contractId, getCurrentMessages());
+      const response = await sendChatMessage(inputMessage, contractId, currentMessages);
       addMessage(contractId, response);
     } catch (error: any) {
       console.error('Error sending message:', error);
