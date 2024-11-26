@@ -3,11 +3,13 @@ import Upload from '../components/Upload/Upload';
 import ContractAnalysis from '../components/ContractAnalysis/ContractAnalysis';
 import ContractList from '../components/ContractList/ContractList';
 import type { Contract } from '../types/contracts';
+import { useChatStore } from '../store/chatStore';
 
 const HomePage: React.FC = () => {
   const [contracts, setContracts] = useState<Contract[]>([]);
   const [selectedContract, setSelectedContract] = useState<Contract | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const { clearAllMessages } = useChatStore();
 
   useEffect(() => {
     const storedContracts = localStorage.getItem('contracts');
@@ -49,6 +51,7 @@ const HomePage: React.FC = () => {
   const handleClearContracts = () => {
     localStorage.removeItem('contracts');
     localStorage.removeItem('selectedContract');
+    clearAllMessages();
     setContracts([]);
     setSelectedContract(null);
   };
@@ -64,24 +67,10 @@ const HomePage: React.FC = () => {
         <ContractList 
           contracts={contracts} 
           selectedContract={selectedContract} 
-          onContractSelect={handleContractSelect} 
+          onContractSelect={handleContractSelect}
+          onClearContracts={handleClearContracts}
         />
         
-        <div className="flex justify-center mt-4">
-          <button
-            onClick={() => setSelectedContract(null)}
-            className="px-4 py-2 text-primary hover:bg-primary/10 rounded-lg mr-2"
-          >
-            Upload New
-          </button>
-          <button
-            onClick={handleClearContracts}
-            className="px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg"
-          >
-            Clear All
-          </button>
-        </div>
-
         {selectedContract && (
           <div className="mt-4">
             <ContractAnalysis 
@@ -99,22 +88,9 @@ const HomePage: React.FC = () => {
           <ContractList 
             contracts={contracts} 
             selectedContract={selectedContract} 
-            onContractSelect={handleContractSelect} 
+            onContractSelect={handleContractSelect}
+            onClearContracts={handleClearContracts}
           />
-          <div className="flex justify-center">
-            <button
-              onClick={() => setSelectedContract(null)}
-              className="px-4 py-2 text-primary hover:bg-primary/10 rounded-lg mr-2"
-            >
-              Upload New
-            </button>
-            <button
-              onClick={handleClearContracts}
-              className="px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg"
-            >
-              Clear All
-            </button>
-          </div>
         </div>
         
         {selectedContract === null ? (
