@@ -1,7 +1,7 @@
 // services/api.ts
 import type { ChatMessage } from '../types/contracts'; // Ensure correct import for ChatMessage
 
-const API_URL = 'https://25c15b7a-7f82-4945-96ca-5b31f1501ef9-00-2zme2wywf9y6e.riker.replit.dev/';
+const API_URL = 'https://25c15b7a-7f82-4945-96ca-5b31f1501ef9-00-2zme2wywf9y6e.riker.replit.dev';
 
 export const analyzeContract = async (file: File): Promise<any> => {
   try {
