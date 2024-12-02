@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
-import type { Contract, ContractAnalysis } from '../types/contracts';
+import type { Contract } from '../types/contracts';
 
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 const MAX_TIMEOUT = 300000; // 5 minutes

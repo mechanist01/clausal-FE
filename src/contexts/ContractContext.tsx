@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import type { Contract, ContractContextType } from '../types/contracts';
 import { supabase } from '../config/supabase';
-import { useAuth0 } from '@auth0/auth0-react';
 
 // Updated demo contract definition
 const DEMO_CONTRACT: Contract = {
