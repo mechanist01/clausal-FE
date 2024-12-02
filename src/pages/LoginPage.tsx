@@ -1,7 +1,7 @@
 // LoginPage.tsx
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { Shield, Bot, FileText, ArrowRight, Search, Scale } from 'lucide-react';
+import { Shield, ArrowRight, Search, Scale } from 'lucide-react';
 
 export const LoginPage: React.FC = () => {
   const { loginWithRedirect } = useAuth0();

@@ -1,7 +1,6 @@
 // store/riskStore.ts
 import { create } from 'zustand';
 import type { Risk, RiskAssessmentSummary } from '../types/risks';
-import { useAuth0 } from '@auth0/auth0-react';
 import { persist } from 'zustand/middleware';
 
 interface RiskState {

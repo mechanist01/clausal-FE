@@ -1,4 +1,4 @@
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
 import type { Contract, ContractAnalysis } from '../types/contracts';
 

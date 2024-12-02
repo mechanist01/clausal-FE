@@ -40,11 +40,10 @@ const RiskAssessment: React.FC = () => {
     isLoading: isRiskLoading,
     error,
     setCurrentContract,
-    loadRiskAssessment,
     assessRisks
   } = useRiskStore();
   
-  const [selectedCategory, setSelectedCategory] = useState<RiskCategory | 'all'>('all');
+  const [selectedCategory] = useState<RiskCategory | 'all'>('all');
   const [showDemoAlert, setShowDemoAlert] = useState(false);
 
   const isDemoContract = currentContract?.id === 'demo-contract';

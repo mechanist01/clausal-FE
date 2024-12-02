@@ -131,7 +131,6 @@ export const ContractProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [currentContract, setCurrentContract] = useState<Contract | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const { getAccessTokenSilently } = useAuth0();
 
   useEffect(() => {
     const loadStoredData = () => {

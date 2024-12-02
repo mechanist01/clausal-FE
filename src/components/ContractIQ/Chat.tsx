@@ -3,7 +3,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Send, AlertCircle } from 'lucide-react';
 import { useChatStore } from '../../store/chatStore';
 import type { ChatMessage } from '../../types/contracts';
-import useContractService from '../../services/contractService';
 import { useContract } from '../../contexts/ContractContext';
 import { LoadingBrain } from '../LoadingSpinner/LoadingBrain';
 import { useAuth0 } from '@auth0/auth0-react';

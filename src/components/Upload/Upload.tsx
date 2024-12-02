@@ -4,20 +4,9 @@ import type { Contract } from '../../types/contracts';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import useContractService, { ApiError } from '../../services/contractService';
 import { useContract } from '../../contexts/ContractContext';
-import type { AxiosResponse } from 'axios';
 
 interface UploadProps {
   onUploadSuccess: (contractData: Contract) => void;
-}
-
-interface AnalysisResponse {
-  contractId: string;
-  metadata: {
-    filesize: number;
-    timestamp: string;
-  };
-  analysis: any;  // Replace 'any' with your specific analysis type
-  status: string;
 }
 
 const Upload: React.FC<UploadProps> = ({ onUploadSuccess }) => {
