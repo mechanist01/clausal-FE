@@ -1,11 +1,23 @@
 import React, { useState, useRef, DragEvent } from 'react';
 import { Upload as UploadIcon } from 'lucide-react';
-import { analyzeContract } from '../../services/api';
 import type { Contract } from '../../types/contracts';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import useContractService, { ApiError } from '../../services/contractService';
+import { useContract } from '../../contexts/ContractContext';
+import type { AxiosResponse } from 'axios';
 
 interface UploadProps {
   onUploadSuccess: (contractData: Contract) => void;
+}
+
+interface AnalysisResponse {
+  contractId: string;
+  metadata: {
+    filesize: number;
+    timestamp: string;
+  };
+  analysis: any;  // Replace 'any' with your specific analysis type
+  status: string;
 }
 
 const Upload: React.FC<UploadProps> = ({ onUploadSuccess }) => {
@@ -14,6 +26,8 @@ const Upload: React.FC<UploadProps> = ({ onUploadSuccess }) => {
   const [isDragActive, setIsDragActive] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const contractService = useContractService();
+  const { addContract } = useContract();
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -49,11 +63,27 @@ const Upload: React.FC<UploadProps> = ({ onUploadSuccess }) => {
     setError(null);
 
     try {
-      const response = await analyzeContract(selectedFile);
-      onUploadSuccess(response);
+      const response = await contractService.analyzeContract(selectedFile);
+      
+      if (!response?.data) {
+        throw new Error('Invalid response from server');
+      }
+
+      const contractData = response.data;
+      console.log('Contract data:', contractData);
+      
+      // Add to context and notify parent
+      addContract(contractData);
+      onUploadSuccess(contractData);
       setSelectedFile(null);
+      
     } catch (error: any) {
-      setError(error.message || 'An error occurred during analysis');
+      console.error('Analysis error:', error);
+      if (error instanceof ApiError) {
+        setError(error.message);
+      } else {
+        setError('Failed to analyze contract. Please try again.');
+      }
     } finally {
       setIsLoading(false);
     }

@@ -1,13 +1,13 @@
 export interface Contract {
-    analysis: ContractAnalysis;
+    id: string;
     metadata: {
       filename: string;
       filesize: number;
       timestamp: string;
     };
-    saved_response_file: string;
-    status: string;
-    id: string;
+    analysis: ContractAnalysis;
+    user_id?: string;
+    content?: string;
   }
   
   interface ContractMetadata {
@@ -57,11 +57,24 @@ export interface Contract {
   
   export interface ChatMessage {
     id: string;
-    role: 'user' | 'assistant' | 'system';
+    contract_id: string;
+    user_id: string;
+    role: 'user' | 'assistant';
     content: string;
-    timestamp: string;
+    created_at?: string;
     contractReference?: {
         section: string;
         content: string;
     };
+  }
+  
+  export interface ContractContextType {
+    contracts: Contract[];
+    currentContract: Contract | null;
+    isLoading: boolean;
+    error: string | null;
+    setSelectedContract: (contract: Contract | null) => void;
+    addContract: (contract: Contract) => void;
+    clearContracts: () => void;
+    refreshContract: (id: string) => Promise<void>;
   }

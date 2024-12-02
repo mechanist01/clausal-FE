@@ -1,7 +1,7 @@
 // services/api.ts
 import type { ChatMessage } from '../types/contracts'; // Ensure correct import for ChatMessage
 
-const API_URL = 'https://clausal-backend-ryanaregister.replit.app';
+const API_URL = 'http://127.0.0.1:5000';
 
 export const analyzeContract = async (file: File): Promise<any> => {
   try {
