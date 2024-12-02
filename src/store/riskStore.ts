@@ -47,7 +47,7 @@ export const useRiskStore = create<RiskState>()(
 
           const token = await getToken();
 
-          const response = await fetch('http://localhost:5000/riskassess', {
+          const response = await fetch('https://25c15b7a-7f82-4945-96ca-5b31f1501ef9-00-2zme2wywf9y6e.riker.replit.dev/riskassess', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -121,7 +121,7 @@ export const useRiskStore = create<RiskState>()(
 
           const token = await getToken();
 
-          const response = await fetch('http://localhost:5000/riskassess', {
+          const response = await fetch('https://25c15b7a-7f82-4945-96ca-5b31f1501ef9-00-2zme2wywf9y6e.riker.replit.dev/riskassess', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
