@@ -73,25 +73,25 @@ export const LoginPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <nav className="bg-white shadow fixed w-full top-0 z-50">
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-14 sm:h-16">
+        <div className="w-full px-3 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-14 sm:h-16 max-w-[100vw]">
             <div className="flex items-center">
-              <h1 className="text-lg sm:text-xl font-bold text-[#1a73e8] truncate">
+              <h1 className="text-lg sm:text-xl font-bold text-[#1a73e8]">
                 Contractly
               </h1>
             </div>
-            <div className="flex items-center space-x-2 sm:space-x-4">
+            <div className="flex items-center gap-1 sm:gap-4">
               <button
                 onClick={() => handleAuth('login')}
-                className="px-2 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base text-[#1a73e8] hover:bg-gray-50 rounded-md whitespace-nowrap"
+                className="px-2 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base text-[#1a73e8] hover:bg-gray-50 rounded-md"
               >
                 Sign In
               </button>
               <button
                 onClick={() => handleAuth('signup')}
-                className="px-2 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base bg-[#1a73e8] text-white rounded-md hover:bg-[#1557b0] whitespace-nowrap"
+                className="px-2 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base bg-[#1a73e8] text-white rounded-md hover:bg-[#1557b0]"
               >
-                Try Free
+                Try
               </button>
             </div>
           </div>
@@ -99,28 +99,31 @@ export const LoginPage: React.FC = () => {
       </nav>
 
       <div className="pt-14 sm:pt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <div className="max-w-4xl">
-            <h1 className="text-5xl font-bold tracking-tight text-gray-900 mb-8">
+        <div className="px-4 sm:px-6 lg:px-8 py-12 sm:py-24">
+          <div className="w-full max-w-4xl mx-auto">
+            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 mb-6 sm:mb-8">
               They wrote it to confuse you.
-              <span className="text-[#1a73e8] block">We'll make it crystal clear.</span>
+              <span className="text-[#1a73e8] block mt-2">
+                We'll make it crystal clear.
+              </span>
             </h1>
-            <p className="text-xl text-gray-600 mb-12 max-w-2xl">
+            <p className="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-12 max-w-2xl">
               Every complex clause could cost you real money. Every vague term could slash your commissions. 
               Get instant clarity over your contracts with AI-powered analysis.
             </p>
             <button 
               onClick={() => handleAuth('signup')}
-              className="bg-[#1a73e8] text-white px-8 py-3 rounded-lg hover:bg-[#1557b0] inline-flex items-center gap-2"
+              className="bg-[#1a73e8] text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg hover:bg-[#1557b0] inline-flex items-center gap-2"
             >
               Try Contractly Free
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>
-        <div className="bg-white py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-3 gap-8">
+
+        <div className="bg-white py-12 sm:py-24">
+          <div className="px-4 sm:px-6 lg:px-8">
+            <div className="grid md:grid-cols-3 gap-8 w-full max-w-7xl mx-auto">
               {benefits.map((benefit, index) => (
                 <div key={index} className="space-y-4">
                   <div className="bg-blue-50 w-12 h-12 rounded-xl flex items-center justify-center">
@@ -133,38 +136,44 @@ export const LoginPage: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="bg-gray-50 py-24">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
-              Frequently Asked Questions
-            </h2>
-            <div className="space-y-8">
-              {faqs.map((faq, index) => (
-                <div key={index} className="bg-white p-6 rounded-xl shadow-sm">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    {faq.question}
-                  </h3>
-                  <p className="text-gray-600">{faq.answer}</p>
-                </div>
-              ))}
+
+        <div className="bg-gray-50 py-12 sm:py-24">
+          <div className="px-4 sm:px-6 lg:px-8">
+            <div className="w-full max-w-3xl mx-auto">
+              <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
+                Frequently Asked Questions
+              </h2>
+              <div className="space-y-8">
+                {faqs.map((faq, index) => (
+                  <div key={index} className="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      {faq.question}
+                    </h3>
+                    <p className="text-gray-600">{faq.answer}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Ready to understand your contracts?
-            </h2>
-            <p className="text-gray-600 mb-8">
-              Get started now with our AI-powered contract analysis platform.
-            </p>
-            <button 
-              onClick={() => handleAuth('signup')}
-              className="bg-[#1a73e8] text-white px-8 py-3 rounded-lg hover:bg-[#1557b0] inline-flex items-center gap-2"
-            >
-              Try For Free
-              <ArrowRight className="w-4 h-4" />
-            </button>
+
+        <div className="py-12 sm:py-24">
+          <div className="px-4 sm:px-6 lg:px-8">
+            <div className="w-full max-w-2xl mx-auto text-center">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Ready to understand your contracts?
+              </h2>
+              <p className="text-gray-600 mb-8">
+                Get started now with our AI-powered contract analysis platform.
+              </p>
+              <button 
+                onClick={() => handleAuth('signup')}
+                className="bg-[#1a73e8] text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg hover:bg-[#1557b0] inline-flex items-center gap-2"
+              >
+                Try For Free
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
