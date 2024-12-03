@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
 import type { Contract } from '../types/contracts';
 
-const API_URL = process.env.REACT_APP_API_URL || 'https://25c15b7a-7f82-4945-96ca-5b31f1501ef9-00-2zme2wywf9y6e.riker.replit.dev';
+const API_URL = process.env.REACT_APP_API_URL || 'https://clausal-backend-ryanaregister.replit.app';
 const MAX_TIMEOUT = 300000; // 5 minutes
 
 export class ApiError extends Error {
