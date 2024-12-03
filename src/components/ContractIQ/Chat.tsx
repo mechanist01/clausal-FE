@@ -58,7 +58,7 @@ const Chat: React.FC<ChatProps> = ({ contractId }) => {
     retryAttempt = 0
   ): Promise<ChatMessage> => {
     try {
-      const response = await fetch('http://localhost:5000/contractIQ', {
+      const response = await fetch('https://clausal-backend-ryanaregister.replit.app/contractIQ', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
