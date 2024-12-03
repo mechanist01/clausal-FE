@@ -73,26 +73,26 @@ export const LoginPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <nav className="bg-white shadow fixed w-full top-0 z-50">
-        <div className="w-full px-3 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-14 sm:h-16 max-w-[100vw]">
-            <div className="flex items-center">
-              <h1 className="text-lg sm:text-xl font-bold text-[#1a73e8]">
+        <div className="w-full px-2 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-14 sm:h-16 items-center">
+            <div className="flex-shrink-0">
+              <h1 className="text-base sm:text-xl font-bold text-[#1a73e8]">
                 Contractly
               </h1>
             </div>
-            <div className="flex items-center gap-1 sm:gap-4">
+            <div className="flex items-center gap-1 sm:gap-4 flex-shrink-0">
               <button
                 onClick={() => handleAuth('login')}
-                className="px-2 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base text-[#1a73e8] hover:bg-gray-50 rounded-md"
+                className="px-1.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-base text-[#1a73e8] hover:bg-gray-50 rounded-md"
               >
                 Sign In
               </button>
               <button
-                onClick={() => handleAuth('signup')}
-                className="px-2 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base bg-[#1a73e8] text-white rounded-md hover:bg-[#1557b0]"
-              >
-                Try
-              </button>
+  onClick={() => handleAuth('signup')}
+  className="px-1.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-base bg-[#1a73e8] text-white rounded-md hover:bg-[#1557b0] mr-5"
+>
+  Try For Free
+</button>
             </div>
           </div>
         </div>
